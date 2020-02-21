@@ -20,7 +20,5 @@ var url = require("url");
 var parsedURL = url.parse("https://www.testurl.com/profile?name=blohn");
 
 console.log(parsedURL.protocol);
-
 console.log(parsedURL.host);
-
 console.log(parsedURL.query);
