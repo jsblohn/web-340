@@ -21,9 +21,11 @@ var http = require("http");
 
 var app = express();
 
+// Display the URL to the console and send with "Hello World" to the requesting page.
 app.use(function(request, response) {
   console.log("In comes a request to: " + request.url);
   response.end("Hello World");
 });
 
+// Start the server.
 http.createServer(app).listen(8080);
