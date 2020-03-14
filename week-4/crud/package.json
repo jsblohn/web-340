@@ -1,0 +1,8 @@
+{
+  "name": "crud",
+  "author": "Janet Blohn",
+  "private": true,
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
