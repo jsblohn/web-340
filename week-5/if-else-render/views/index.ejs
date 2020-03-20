@@ -1,0 +1,59 @@
+<!--
+============================================
+; Title:  index.ejs
+; Author: Janet Blohn
+; Date:   20 March 2020
+; Modified By: N/A
+; Description: Exercise 5.2 - EJS Templates
+; Create an EJS file for Exercise 5.2.
+============================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>if...else...render</title>
+
+    <!-- Stylesheet - Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+      integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- Create the Navigation Bar-->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div role="main" class="container">
+      <br /><br />
+
+      <h2>List of Names</h2>
+
+      <!-- Loop through and output each name -->
+      <% for (var k = 0; k < names.length; k++) { %>
+      <!-- if Statement-->
+      <% if ([k]  < names.length) { %>
+      <div class="alert alert-warning" role="alert">
+        <!strong><%= names[k] %></!strong>
+      </div>
+      <% } %>
+      <!-- end if -->
+      <% } %>
+      <!-- end for loop -->
+    </div>
+  </body>
+  </html>
