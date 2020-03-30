@@ -1,0 +1,288 @@
+html {
+	font-size: 16px;
+}
+
+body {
+	background-color: #D6DEDE;
+}
+
+h1, h2, h3, th, small {
+	color: #5F3735;
+}
+
+h1 {
+	font-family: 'Open Sans', Verdana, Arial, sans-serif;
+	text-align: center;
+	background-color: #A5B9B9;
+	font-weight: 500;
+}
+
+h3 {width: 80%;}
+
+h2, h3 {
+	font-family: 'Open Sans', Verdana, Arial, sans-serif;
+	text-align: center;
+}
+
+h2 {
+	padding-top: 20px;
+}
+
+table {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 20px;
+}
+
+footer {
+	text-align: center;
+	background-color: #A5B9B9;
+	padding: 20px 0px;
+	font-weight: 400;
+	margin-top: 20px;
+}
+
+footer a {
+	display: block;
+}
+
+.footText {
+	font-family: 'Open Sans', Verdana, Arial, sans-serif;
+	font-style: italic;
+	float: right;
+	/*background-color: #A5B9B9;*/
+	padding-right: 10px;
+}
+
+nav {
+	text-align: right;
+	text-shadow: -.5px .5px 0 #000;
+	font-size: .75em;
+}
+
+nav a {
+	margin-right: 20px;
+}
+
+ figure {
+	display: block;
+	text-align: center;
+	height: 200px;
+	background-color: #A9B7C0;
+
+}
+
+.yearcol {
+	width: 10%;
+	text-align: center;
+}
+
+.companycol {
+	width: 20%;
+}
+
+.titlecol {
+	width: 20%;
+}
+
+.dutiescol {
+	width: 40%;
+}
+
+.jobsep {
+    border-bottom: 1px solid black;
+}
+
+.degreecol {
+	width: 20%;
+}
+
+.schoolcol {
+	width: 30%;
+}
+
+.studycol {
+	width: 50%;
+}
+
+.center {
+	text-align:center;
+}
+
+img.horizctr {
+	padding-top: 10px;
+}
+
+figure img.widepic {
+	width: 320px;
+	height: 244px;
+}
+
+figure img.normalpic {
+	width: 158px;
+	height: 78px;
+
+}
+
+figure img.today {
+	width: 320px;
+	height: 180px;
+}
+
+figure img.longpic {
+	width: 158px;
+	height: 138px;
+
+}
+
+figure img.shoppic {
+	width: 180px;
+	height: 320px;
+}
+
+p, tr, figcaption{
+	color: #2C4444;
+}
+
+p, table {
+	font-family: 'IBM Plex Sans', Verdana, Arial, sans-serif;
+	font-weight: 500;
+}
+
+figcaption {
+	font-family: 'Oswald', Verdana, Arial, sans-serif;
+	font-weight: 400;
+	text-shadow: -.5px .5px 0 #000;
+}
+
+figure img {
+	padding-top: 0px;
+	border: .1em solid darkgray;
+	border-radius: 5px;
+}
+
+a {
+	font-family: 'Oswald', Verdana, Arial, sans-serif;
+	text-decoration: none;
+}
+
+a:link {
+	color: #5F3735;
+}
+
+a:visited {
+	color: #2C4444;
+}
+
+a:hover {
+	color: #D47969;
+	font-size: 1.5em;
+}
+
+#h1background {
+	background-color: #A5B9B9;
+	margin-bottom: 20px;
+	padding-top: 20px;
+}
+
+header {
+	background-color: #A5B9B9;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.bannerImg {
+	width: 125px;
+	height: 120px;
+	float: left;
+	margin-top: 40px;
+	margin-bottom: 10px;
+	margin-left: 40px;
+	border-radius: 10px;
+	background-color: #A5B9B9;
+
+}
+
+.imagecolumn {
+	width: 20%;
+	float: left;
+	margin: 10px auto;
+	padding-top: 20px;
+}
+
+.headerText {
+	float: right;
+	width: 80%;
+	margin-right: 20px;
+}
+
+#emphist {
+	background-color: #C7D8C6;
+}
+
+#education {
+	background-color: #EFD9C1;
+}
+
+#education:hover {
+	background-color: #F2BB66;
+}
+
+#emphist:hover {
+	background-color: #57BC90;
+  }
+
+ #projects {
+	  background-color: #A9B7C0;
+ }
+
+  figure img:hover {
+	  border: .3em solid #FFFF99;
+  }
+
+  img.longpic:hover {
+	background-color: #000;
+}
+
+  .projectsect {
+	background-color: #A9B7C0;
+	clear: both;
+	height: 200px;
+	width: 100%;
+	margin: 0px auto;
+
+}
+ .introsect:hover {
+	background-color: #ECC5C0;
+  }
+
+.introsect {
+	background-color: #CCC8C6;
+	height: 200px;
+}
+.toTop {
+	text-align: center;
+}
+
+.toTop:link {
+	color: black;
+}
+
+.clearfloat {clear: both;}
+
+.conclusion {
+	clear: left;
+	width: 90%;
+	max-width: 90%;
+	margin: 0px auto;
+	padding: 20px;
+}
+
+.noborder {
+	border: none;
+}
+
+.extrapadding {
+	padding-bottom: 50px;
+}
