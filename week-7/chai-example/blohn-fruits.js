@@ -1,6 +1,6 @@
 /*
 ============================================
-; Title:  blohn-fruit.js
+; Title:  blohn-fruits.js
 ; Author: Professor Krasso
 ; Date:   03 April 2020
 ; Modified By: Janet Blohn
