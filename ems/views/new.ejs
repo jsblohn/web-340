@@ -4,15 +4,38 @@
 ; Author: Professor Krasso
 ; Date:   22 March 2020
 ; Modified By: Janet Blohn
+; Last Modified On: 11 April 2020
 ; Description: Add New Employees view for EMS Project
-; Demonstrates EJS Layouts
 ============================================
 -->
+
+<!-- Add the views for the header and navigation bar -->
 <%- include("header") %>
 <%- include("navbar") %>
 
-<h1>Add New Employees</h1>
-<br /><br />
+<h2>Add New Employees</h2>
+<br/><br/>
 
+<!-- Create the form to add new employees. -->
+<form method="post" action="/process">
+  <div class="form-row center-input">
+    <div class="form-group col-sm-6 center">
+      <label for="firstName">First Name:</label>
+      <input type="text" class="form-control" id="firstName" name="firstName" />
+    </div>
+
+    <div class="form-group col-sm-6 center">
+      <label for="lastName">Last Name:</label>
+      <input type="text" class="form-control" id="lastName" name="lastName" />
+    </div>
+  </div>
+
+  <button type=submit class="newButton btn-secondary">Submit</button>
+
+  <!-- CSRF token -->
+  <input name="_csrf" value="<%= csrfToken %>" type="hidden" style="width: 100%"/>
+</form>
+
+<!-- Include the footer and the jQuery and Bootstrap scripts -->
 <%- include("footer") %>
 <%- include("scripts") %>

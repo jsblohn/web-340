@@ -1,4 +1,4 @@
-#container, footer {
+#container, footer, thead, tbody {
   background-color: #2E425B;
   color: white;
   font-family: 'Gotu', sans-serif;
@@ -23,6 +23,16 @@ p, table {
 	font-weight: 500;
 }
 
+.table {width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hoverTable tbody tr:hover td {
+  color: yellow;
+  font-weight: bold;
+}
+
 a {
 	text-decoration: none;
   color: #2E425B
@@ -43,16 +53,39 @@ table {
 	padding-bottom: 20px;
 }
 
-.navbar {
+.navbar, .newButton {
   background-color: white;
   color: #2E425B;
 }
 
-.button {
+.newButton {
+  border-radius: .5em;
+  border-color: #2E425B;
+  margin-top: 1.82rem;
+  margin-right: 10%;
+  float: right;
+  padding-top: .42rem;
+  padding-bottom: .4rem;
+  width: 10%;
+}
+
+.homeButton {
   border-radius: 1em;
   border-color: #2E425B;
   background-color: white;
   width: 100%;
+}
+
+.btn {
+  display: block;
+  float: right;
+}
+
+.center-input {
+  width: 50%;
+  margin-left: 30%;
+  margin-right: 30%;
+  position: fixed;
 }
 
 .listPad {
@@ -87,7 +120,7 @@ table {
 }
 
 .center {
-	text-align:center;
+	text-align: center;
 }
 
 .centerNavHome {

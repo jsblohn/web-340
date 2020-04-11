@@ -4,9 +4,8 @@
 ; Author: Professor Krasso
 ; Date:   22 March 2020
 ; Modified By: Janet Blohn
-; Modified Date: 03 April 2020
-; Description: Assignment 5.4 - EMS
-; Demonstrates EJS Layouts
+; Last Modified Date: 10 April 2020
+; Description: Node program for EMS Project
 ============================================
 */
 
@@ -22,6 +21,10 @@ var http = require("http");
 var path = require("path");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var helmet = require("helmet");
+var bodyParser = require("body-parser");
+var cookieParser = require("cookie-parser");
+var csrf = require("csurf");
 var Employee = require("./models/employee");
 
 //Connect to MongoDB with Mongoose.
@@ -36,16 +39,35 @@ db.once("open", function() {
   console.log("Application connected to mLab MongoDB instance");
 });
 
+// Setup CSRF Protection
+let csrfProtection = csrf({cookie: true});
+
 // Call the express function to start the Express application.
 var app = express();
 
-// Tell Express where to find the views and all tell Express to use Pug as the engine.
+// Set up the applications to use
+app.use(logger("short"));  // Use Morgan for logging
+app.use(express.static("css")); // Use an external CSS file
+app.use(bodyParser.urlencoded ({  // Use Body Parser to parse the incoming request
+    extended: true
+  })
+);
+app.use(cookieParser());  // Parse the cookies attached to the client request with Cookie Parser
+app.use(helmet.xssFilter());  // Use Helmet to secure HTTP requests
+app.use(csrfProtection);  // Add CSRF protection to all incoming calls
+app.use(function(request, response, next) {
+  var token = request.csrfToken();
+  response.cookie("XSRF-TOKEN", token);
+  response.locals.csrfToken = token;
+  next();
+});
+app.use(express.static(__dirname + "/public"));  // May need to use to replace CSS folder
+
+// Tell Express where to find the views.
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
-app.use(logger("short"));
-app.use(express.static("css"));
 
-
+// Redirect users to the "index" (home) page
 app.get("/", function(request, response) {
   Employee.find({}, function(err, employees) {
     if (err) {
@@ -55,18 +77,60 @@ app.get("/", function(request, response) {
       console.log(employees);
       response.render("index", {
         title: "EMS | Home",
-        employees: employees
+        employees: employees,
+        //message: "XSS Prevention Example",  Left these 2 here to show they were tested
+        //message2: "New Employee Entry Page"
       })
     }
    });
 });
 
-app.get("/list", function(request, response) {
- /* response.render("list", {
-    title: "Employee List"
+// Send to the "new" page when chosen
+app.get("/new", function(request, response) {
+  response.render("new", {
+    title: "EMS | New"
   });
-});*/
-response.end("Welcome to the Employee List Page");
+});
+
+// Process a form transmission
+app.post("/process", function(request, response) {
+  console.log(request.body.firstName, request.body.lastName);
+  if(!request.body.firstName || !request.body.lastName) {
+    response.status(400).send("Entries must have a name");
+    return;
+  }
+  //response.redirect("/");
+
+// Get the new employee form
+const firstName = request.body.firstName;
+const lastName = request.body.lastName;
+console.log(firstName, lastName);
+
+// Create the Employee Model
+let employee = new Employee({
+  firstName: firstName,
+  lastName: lastName
+});
+
+// Save the New Employee
+employee.save(function(err) {
+  if(err) {
+    console.log(err);
+    throw err;
+  } else {
+    console.log(firstName + " " + lastName + " saved successfully!");
+  }
+});
+ response.redirect("/list");
+});
+
+app.get("/list", function(request, response) {
+  Employee.find({}, function(error, employees) {
+    if(error)throwerror;
+      response.render("list", {
+      title: "EMS | List", employees:employees
+    });
+  });
 });
 
 http.createServer(app).listen(8080, function() {

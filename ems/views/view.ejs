@@ -5,14 +5,31 @@
 ; Date:   22 March 2020
 ; Modified By: Janet Blohn
 ; Description: Display of Employee Record view for EMS Project
-; Demonstrates EJS Layouts
 ============================================
 -->
 <%- include("header") %>
 <%- include("navbar") %>
 
-<h1>View Employee Information</h1>
+<h2>View Employee Information</h2>
 <br /><br />
+br/><br/>
+<h4> Please enter the employee's name below</h4>
+<form method="post" action="/process">
+  <div class="form-row center-input">
+
+  <div class="form-group col-sm-6">
+    <label for="firstName">First Name:</label>
+    <input type="text" class="form-control" id="firstName" name="firstName" />
+  </div>
+
+    <div class="form-group col-sm-6">
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" class="form-control" id="lastName" name="lastName" />
+  </div>
+  <div class="form-group col-sm-6"></div>
+</div>
+</form>
 
 <%- include("footer") %>
 <%- include("scripts") %>
