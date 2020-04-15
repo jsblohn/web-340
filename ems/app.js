@@ -2,7 +2,7 @@
 ============================================
 ; Title:  app.js
 ; Author: Professor Krasso
-; Date:   22 March 2020
+; Date:   15 April 2020
 ; Modified By: Janet Blohn
 ; Last Modified Date: 10 April 2020
 ; Description: Node program for EMS Project
@@ -47,7 +47,8 @@ var app = express();
 
 // Set up the applications to use
 app.use(logger("short"));  // Use Morgan for logging
-app.use(express.static("css")); // Use an external CSS file
+//app.use(express.static("css")); // Use an external CSS file
+//app.use(express.static(_dirname + "/css")); // Use an external CSS file
 app.use(bodyParser.urlencoded ({  // Use Body Parser to parse the incoming request
     extended: true
   })
@@ -61,12 +62,11 @@ app.use(function(request, response, next) {
   response.locals.csrfToken = token;
   next();
 });
-app.use(express.static(__dirname + "/public"));  // May need to use to replace CSS folder
-
+app.use(express.static(__dirname + "/public"));  // Define for CSS folder
 // Tell Express where to find the views.
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
-
+app.set("port", process.env.PORT || 8080);
 // Redirect users to the "index" (home) page
 app.get("/", function(request, response) {
   Employee.find({}, function(err, employees) {
@@ -121,18 +121,41 @@ employee.save(function(err) {
     console.log(firstName + " " + lastName + " saved successfully!");
   }
 });
- response.redirect("/list");
+ response.redirect("/list"); //wrong spot?
 });
 
 app.get("/list", function(request, response) {
   Employee.find({}, function(error, employees) {
     if(error)throwerror;
       response.render("list", {
-      title: "EMS | List", employees:employees
+      title: "EMS | List",
+      employees:employees
     });
   });
 });
 
-http.createServer(app).listen(8080, function() {
-  console.log("Application started on port 8080!");
+app.get("/view/:queryName", function(request,response) {
+  const queryName = request.params["queryName"];
+
+  Employee.find({"lastName": queryName}, function(err,employees) {
+    if(err) {
+      console.log(err);
+      throw err;
+    } else {
+      console.log(employees);
+
+      if(employees.length > 0) {
+        response.render("view", {
+          title: "EMS | View",
+          employee: employees
+        })
+      } else {
+        response.redirect("/");
+      }
+    }
+  })
+});
+
+http.createServer(app).listen(app.get("port"), function() {
+  console.log("Application started on port " + app.get("port"))
 });

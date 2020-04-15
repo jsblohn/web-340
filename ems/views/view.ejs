@@ -2,8 +2,9 @@
 ============================================
 ; Title:  view.ejs
 ; Author: Professor Krasso
-; Date:   22 March 2020
+; Date:   15 April 2020
 ; Modified By: Janet Blohn
+; Last Modified On: 14 April 2020
 ; Description: Display of Employee Record view for EMS Project
 ============================================
 -->
@@ -12,24 +13,20 @@
 
 <h2>View Employee Information</h2>
 <br /><br />
-br/><br/>
-<h4> Please enter the employee's name below</h4>
-<form method="post" action="/process">
-  <div class="form-row center-input">
-
-  <div class="form-group col-sm-6">
+<br/><br/>
+<div class="form-row center-input">
+  <div class="form-group col-sm-6 center">
     <label for="firstName">First Name:</label>
-    <input type="text" class="form-control" id="firstName" name="firstName" />
+    <input type="text" class="form-control" id="firstName" name="firstName" readonly value="<%= employee[0].firstName %>" name="firstName" />
   </div>
 
-    <div class="form-group col-sm-6">
-
+  <div class="form-group col-sm-6 center">
     <label for="lastName">Last Name:</label>
-    <input type="text" class="form-control" id="lastName" name="lastName" />
+    <input type="text" class="form-control" id="lastName" name="lastName" readonly value="<%= employee[0].lastName %>" name="lastName" />
   </div>
-  <div class="form-group col-sm-6"></div>
 </div>
-</form>
+
+<p class="alignBackNav"><a href="/list" style="color: white">&larr;&nbsp;Back to List</a></p>
 
 <%- include("footer") %>
 <%- include("scripts") %>

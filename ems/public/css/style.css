@@ -1,4 +1,4 @@
-#container, footer, thead, tbody {
+#container, footer, thead, tbody a {
   background-color: #2E425B;
   color: white;
   font-family: 'Gotu', sans-serif;
@@ -33,9 +33,18 @@ p, table {
   font-weight: bold;
 }
 
+.table-row:hover td a {
+  color: yellow;
+  font-weight: bold;
+}
+
 a {
 	text-decoration: none;
   color: #2E425B
+}
+
+td {
+  color: white;
 }
 
 footer {
@@ -73,12 +82,16 @@ table {
   border-radius: 1em;
   border-color: #2E425B;
   background-color: white;
-  width: 100%;
 }
 
 .btn {
   display: block;
   float: right;
+}
+
+.alignBackNav {
+  margin-top: 1.92rem;
+  margin-left: 2%;
 }
 
 .center-input {
@@ -89,19 +102,14 @@ table {
 }
 
 .listPad {
-  padding-left: 3em;
-  padding-right: 3em;
-  width: 125%;
+  padding-left: 4em;
+  padding-right: 4em;
+  margin-left: 7.5rem;
 }
 
 .newPad {
-  padding-left: 2em;
-  padding-right: 2em;
-  width: 119%;
-}
-
-.padRight {
-  margin-right: 10em;
+  padding-left: 3em;
+  padding-right: 3em;
 }
 
 #footText {
@@ -124,10 +132,16 @@ table {
 }
 
 .centerNavHome {
-  width: 86%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
   background-color: transparent;
+}
+
+ul, li {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .centerNav {
