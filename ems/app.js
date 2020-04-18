@@ -47,8 +47,6 @@ var app = express();
 
 // Set up the applications to use
 app.use(logger("short"));  // Use Morgan for logging
-//app.use(express.static("css")); // Use an external CSS file
-//app.use(express.static(_dirname + "/css")); // Use an external CSS file
 app.use(bodyParser.urlencoded ({  // Use Body Parser to parse the incoming request
     extended: true
   })
@@ -99,7 +97,6 @@ app.post("/process", function(request, response) {
     response.status(400).send("Entries must have a name");
     return;
   }
-  //response.redirect("/");
 
 // Get the new employee form
 const firstName = request.body.firstName;
@@ -121,7 +118,7 @@ employee.save(function(err) {
     console.log(firstName + " " + lastName + " saved successfully!");
   }
 });
- response.redirect("/list"); //wrong spot?
+ response.redirect("/list");
 });
 
 app.get("/list", function(request, response) {
